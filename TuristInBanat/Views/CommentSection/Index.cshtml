@@ -1,0 +1,131 @@
+﻿@model IEnumerable<TuristInBanat.Models.Comment>
+
+@{
+    ViewBag.Title = "Chat Room";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+@*<h2>@ViewBag.Title</h2>*@
+<h4>@ViewBag.Message</h4>
+
+
+<br />
+<div class="row">
+    <div class="panel panel-body">
+        <div class="col-md-7" style="background-color:#e9f2eb" ; border-radius 10px;>
+
+            <table class="table">
+                @*<table class="table text-center">*@
+                @foreach (var comment in Model)
+            {
+                    <tr>
+                        <td>
+                            @*<div class=" col-md-3">*@
+
+                            <span>
+
+                                @if (comment.User.ImageUrl.Length > 0)
+                                {
+                                    <img src="@Url.Content(comment.User.ImageUrl)" alt="No image" style="height:64px" class=" img-thumbnail" />
+                                }
+
+                                else
+                                {
+                                    <img src="@Url.Content("~/ProfileImages/default.png")" alt="No image" style="height:64px" class=" img-thumbnail" />
+                                }
+                            </span>
+
+                            @*</div>
+                                <div class=" col-md-9">*@
+                            <span style="margin-right:20px; margin-left:7px; font-size:16px; color:royalblue">
+                                @comment.User.Username
+                            </span>
+
+                            <span style="font-size:14px">
+                                @Html.DisplayFor(modelItem => comment.Text)
+                            </span>
+                            <br />
+                            <span style="font-size:10px; color:darkgray;">
+                                @comment.CreatedOn;
+                            </span>
+                            @*</div>*@
+
+                            @*Showing the replies under each comment, if there are any.*@
+                            @foreach (var reply in comment.Replies)
+                {
+                                <br />
+
+                                <span style="margin-left:40px">
+
+                                    @if (reply.User.ImageUrl.Length > 0)
+                                    {
+                                        <img src="@Url.Content(reply.User.ImageUrl)" alt="No image" style="height:40px" class=" img-thumbnail" />
+                                    }
+
+                                    @*else
+                                        {
+                                            <img src="@Url.Content("~/ProfileImages/default.png")" alt="No image" style="height:40px" class=" img-thumbnail" />
+                                        }*@
+                                </span>
+
+                                <span style=" margin-left:7px; font-size:14px; color:deepskyblue">
+                                    @reply.User.Username
+                                </span>
+                                <span style="margin-left:15px; font-size:12px">
+                                    @reply.Text
+                                </span>
+                                <br />
+                                <span style="font-size:10px; margin-left:40px; color:darkgray">
+                                    @reply.CreatedOn;
+                                </span>
+
+
+                            }
+
+                            @*Text box for writing replies, under each comment*@
+                            <br />
+
+                            @using (Html.BeginForm("PostReply", "CommentSection", FormMethod.Post))
+                {
+
+                                <input type="text" name="Reply" placeholder="Raspundeti..."
+                                       style="min-width:70%; height:50px; margin-top:10px" />
+
+                                    <input type="hidden" name="CID" value="@comment.Id" />
+                                    <input type="submit" value="Raspunde"
+                                           class="btn btn-info btn-sm" style="margin-left:10px" />
+
+                            }
+
+                        </td>
+                    </tr>
+                }
+
+            </table>
+
+        </div>
+
+
+        <div class="col-md-5">
+            <div style="padding: 7px">
+                <img src="~/Content/Images/_bannerChatroom2.png" class="img-thumbnail" />
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+
+@*Text box for writing new comments*@
+@using (Html.BeginForm("PostComment", "CommentSection", FormMethod.Post))
+{
+
+    <input type="text" name="CommentText" placeholder="Scrieti un comentariu nou aici..."
+           style="min-width:70%; height:100px; margin-top:10px" />
+        <br />
+        <input type="submit" value="Postati comentariul"
+               class="btn btn-primary" style="margin-top:10px" />
+
+}
+

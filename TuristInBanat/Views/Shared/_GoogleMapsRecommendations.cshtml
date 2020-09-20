@@ -1,0 +1,238 @@
+﻿<style>
+    /* Set the size of the div element that contains the map */
+    #googleMap {
+        height: 400px; /* The height is 400 pixels */
+        width: 100%; /* The width is the width of the web page */
+    }
+</style>
+
+
+<div class="row">
+
+    <div id="googleMap"></div>
+    <script>
+        // Initialize and add the map
+        function initMap() {
+            // The location of the map
+            var recommendationsMap = { lat: 45.558276, lng: 21.7088423 };
+            // The map, centered at the above coordinates
+            var map = new google.maps.Map(
+                document.getElementById('googleMap'), { zoom: 8, center: recommendationsMap });
+
+
+            // The marker, positioned at Timisoara
+            var markerTimisoara = new google.maps.Marker(
+                {
+                    position: { lat: 45.76118, lng: 21.2522953 },
+                    map: map
+                });
+
+            var contentStringTimisoara = '<div id="content">' +
+                            '<div id="siteNotice">' +
+                            '</div>' +
+                            '<h2 id="firstHeading" class="firstHeading">Timisoara</h2>' +
+                            '<div id="bodyContent">' +
+                            'Timisoara este situata in sud-estul Campiei Panonice (respectiv in sudul Campiei de Vest), ' +
+                            'in zona de divagare a raurilor Timis si Bega. Timisoara, in traducere: „cetatea de pe Timis” este resedinta si cel mai mare oras al judetului Timis din regiunea istorica Banat, vestul Romaniei. ' +
+                            'Numele localitatii vine de la raul Timis (trecand la sud de municipiu), numit de romani in antichitate Tibisis sau Tibiscus.</p>';
+            var infowindowTimisoara = new google.maps.InfoWindow({
+                content: contentStringTimisoara
+            });
+            markerTimisoara.addListener('mouseover', function () {
+                infowindowTimisoara.open(map, markerTimisoara);
+            });
+            markerTimisoara.addListener('mouseout', function () {
+                infowindowTimisoara.close();
+            });
+
+
+            // New marker, positioned at Cascada Bigar
+            var markerBigar = new google.maps.Marker(
+              {
+                  position: { lat: 45.0036488, lng: 21.9571383 },
+                  map: map
+              });
+
+            var contentStringBigar = '<div id="content">' +
+                            '<div id="siteNotice">' +
+                            '</div>' +
+                            '<h2 id="firstHeading" class="firstHeading">Cascada Bigar</h2>' +
+                            '<div id="bodyContent">' +
+                            '<p>Cascada este formata pe tuf calcaros acoperit de muschi verde pufos. Are aspect tronconic, ca o cusma.' +
+                            'Dar cea mai potrivita comparatie e aceia cu crestetul unei fete cu pletele ca in legenda. Apa vine din Izbucul Bigar' +
+                            'iar la zece minute de mers, se afla Grota Bigar, iar in apropiere se gaseste pastravaria Minis.';
+            var infowindowBigar = new google.maps.InfoWindow({
+                content: contentStringBigar
+            });
+            markerBigar.addListener('mouseover', function () {
+                infowindowBigar.open(map, markerBigar);
+            });
+            markerBigar.addListener('mouseout', function () {
+                infowindowBigar.close();
+            });
+
+
+            // New marker, positioned at Domeniul Herneacova
+            var markerHerneacova = new google.maps.Marker(
+              {
+                  position: { lat: 45.885974, lng: 21.5142943 },
+                  map: map
+              });
+
+            var contentStringHerneacova = '<div id="content">' +
+                           '<div id="siteNotice">' +
+                            '</div>' +
+                            '<h2 id="firstHeading" class="firstHeading">Domeniul Herneacova</h2>' +
+                            '<div id="bodyContent">' +
+                            '<p>Cea mai recenta investitie de pe Domeniul Herneacova (la 40 de kilometri de Timisoara si zece kilometri de Recas) este Parcul de Aventura. ' +
+                            'Cele doua trasee pleaca de la o inaltime de cinci metri si in punctele cele mai inalte ajunge pana la 20 de metri.' +
+                            'S-au montat si doua tiroliene cu o lungime de 240 respectiv 260 de metri, care traverseaza, dus – intors, Domeniul Herneacova. Aventura Park se adreseaza atat copiilor cat si adultilor.';
+            var infowindowHerneacova = new google.maps.InfoWindow({
+                content: contentStringHerneacova
+            });
+            markerHerneacova.addListener('mouseover', function () {
+                infowindowHerneacova.open(map, markerHerneacova);
+            });
+            markerHerneacova.addListener('mouseout', function () {
+                infowindowHerneacova.close();
+            });
+
+
+            // New marker, positioned at Ponton Casa Baraj
+            var markerPonton = new google.maps.Marker(
+              {
+                  position: { lat: 45.218149, lng: 22.0238593 },
+                  map: map
+              });
+
+            var contentStringPonton = '<div id="content">' +
+                           '<div id="siteNotice">' +
+                            '</div>' +
+                            '<h2 id="firstHeading" class="firstHeading">Ponton Casa Baraj</h2>' +
+                            '<div id="bodyContent">' +
+                            '<p>Iarna, sporturile de zapada sunt principala atractie, iar partia de la Valiug se bucura de una dintre cele mai moderne instalatii de ski din tara.' +
+                            'In sezonul rece, partia este deschisa in fiecare zi intre 9.00 si 17.00, iar pe nocturna in intervalul 18.00 – 22.00. Se ajunge foarte usor cu masina, ' +
+                            'iar la baza partiei se afla barul Apres Ski unde te poti incalzi cu un vin fiert sau o ciocolata calda.';
+            var infowindowPonton = new google.maps.InfoWindow({
+                content: contentStringPonton
+            });
+            markerPonton.addListener('mouseover', function () {
+                infowindowPonton.open(map, markerPonton);
+            });
+            markerPonton.addListener('mouseout', function () {
+                infowindowPonton.close();
+            });
+
+
+            // New marker, positioned at Scart Loc Lejer
+            var markerScart = new google.maps.Marker(
+              {
+                  position: { lat: 45.7482459, lng: 21.2222148 },
+                  map: map
+              });
+
+            var contentStringScart = '<div id="content">' +
+                            '<div id="siteNotice">' +
+                            '</div>' +
+                            '<h2 id="firstHeading" class="firstHeading">Scart Loc Lejer</h2>' +
+                            '<div id="bodyContent">' +
+                            '<p>Casa de pe strada Laszlo Szekely nr. 1 este o institutie neoficiala a culturii underground care gazduieste birtul' +
+                            'Scart Loc Lejer in care se asculta de pe vinyl de la metale & jazz pana la lautareasca & povesti, se bea cu spor & se mananca romaneste';
+            var infowindowScart = new google.maps.InfoWindow({
+                content: contentStringScart
+            });
+            markerScart.addListener('mouseover', function () {
+                infowindowScart.open(map, markerScart);
+            });
+            markerScart.addListener('mouseout', function () {
+                infowindowScart.close();
+            });
+
+
+            // New marker, positioned at Hotel J'adore Boutique
+            var markerBoutique = new google.maps.Marker(
+              {
+                  position: { lat: 45.6725446, lng: 21.9154158 },
+                  map: map
+              });
+
+            var contentStringBoutique = '<div id="content">' +
+                            '<div id="siteNotice">' +
+                            '</div>' +
+                            '<h2 id="firstHeading" class="firstHeading">Hotel J`adore Boutique</h2>' +
+                            '<div id="bodyContent">' +
+                            '<p>J`adore Boutique Hotel se afla in Lugoj si are restaurant, bar, gradina si piscina sezoniera in aer liber.' +
+                            'Acest hotel de 3 stele pune la dispozitie WiFi gratuit, room-service si receptie deschisa non-stop.';
+            var infowindowBoutique = new google.maps.InfoWindow({
+                content: contentStringBoutique
+            });
+            markerBoutique.addListener('mouseover', function () {
+                infowindowBoutique.open(map, markerBoutique);
+            });
+            markerBoutique.addListener('mouseout', function () {
+                infowindowBoutique.close();
+            });
+
+
+            // New marker, positioned at Zoo Resita
+            var markerZoo = new google.maps.Marker(
+              {
+                  position: { lat: 45.2939939, lng: 21.917494 },
+                  map: map
+              });
+
+            var contentStringZoo = '<div id="content">' +
+                           '<div id="siteNotice">' +
+                            '</div>' +
+                            '<h2 id="firstHeading" class="firstHeading">Gradina Zoologica Ioan Crisan</h2>' +
+                            '<div id="bodyContent">' +
+                            '<p>Gradina zoologica Ioan Crisan Resita, construita in anul 1965, modernizata in anul 2013, cu o suprafata de 5,6 hectare, va intampina cu exemplare unice si rare.' +
+                            'In prezent Gradina Zoologica este cea mai mare din vestul tarii si aici se regasesc animale precum: zimbri, jaguar, puma, emu, lama, mara, sconcs si cerb lopatar.';
+            var infowindowZoo = new google.maps.InfoWindow({
+                content: contentStringZoo
+            });
+            markerZoo.addListener('mouseover', function () {
+                infowindowZoo.open(map, markerZoo);
+            });
+            markerZoo.addListener('mouseout', function () {
+                infowindowZoo.close();
+            });
+
+
+            // New marker, positioned at Pensiunea Nerahouse
+            var markerNerahouse = new google.maps.Marker(
+              {
+                  position: { lat: 44.9705006, lng: 21.6376948 },
+                  map: map
+              });
+
+            var contentStringNerahouse = '<div id="content">' +
+                            '<div id="siteNotice">' +
+                            '</div>' +
+                            '<h2 id="firstHeading" class="firstHeading">Pensiunea Nerahouse</h2>' +
+                            '<div id="bodyContent">' +
+                            '<p>Situata in Ilidia, in judetul Caras-Severin, Nerahouse ofera cazare cu WiFi gratuit si parcare privata gratuita.' +
+                            'Aceasta pensiune agroturistica pune la dispozitie o terasa la soare si gratar. ' +
+                            'Rezervatia naturala Cheile Nerei care se afla in apropiere.';
+            var infowindowNerahouse = new google.maps.InfoWindow({
+                content: contentStringNerahouse
+            });
+            markerNerahouse.addListener('mouseover', function () {
+                infowindowNerahouse.open(map, markerNerahouse);
+            });
+            markerNerahouse.addListener('mouseout', function () {
+                infowindowNerahouse.close();
+            });
+
+
+
+        }
+
+    </script>
+
+    <script defer
+            src="https://maps.googleapis.com/maps/api/js?key=  myPersonalKeyNoSpaces  &callback=initMap">
+    </script>
+
+
+</div>

@@ -1,0 +1,39 @@
+﻿
+<div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            @Html.ActionLink(" ", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+        </div>
+        <div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    @Html.ActionLink(" ", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li>@Html.ActionLink("Acasa", "Index", "Home")</li>
+                        <li>@Html.ActionLink("Recomandarile noastre", "Recommendations", "Home")</li>
+                        <li>@Html.ActionLink("Contacteaza-ne", "Contact", "Home")</li>
+                        <li>@Html.ActionLink("Despre noi", "About", "Home")</li>
+                    </ul>
+
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>@Html.ActionLink("Inregistrare", "RegisterTurist", "Account")</li>
+                        <li>@Html.ActionLink("Autentificare", "LoginTurist", "Account")</li>
+                    </ul>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

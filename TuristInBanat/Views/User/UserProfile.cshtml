@@ -1,0 +1,74 @@
+﻿@model TuristInBanat.Models.User
+
+@{
+    ViewBag.Title = "Profilul dumneavoastra personal";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+<h2 class=" text-center">Profilul meu</h2>
+
+<div class="well">
+    @*<h4>User</h4>*@
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Username)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Username)
+        </dd>
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Password)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Password)
+        </dd>
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+
+
+        <dt>
+            Data crearii contului:
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.CreatedOn)
+        </dd>
+
+
+        <dt style="margin-top: 15px">
+            @Html.DisplayNameFor(model => model.ImageUrl)
+        </dt>
+
+        <dd style="margin-top: 15px">
+            @if (Model.ImageUrl.Length > 0)
+            {
+                <img src=" @Url.Content(Model.ImageUrl)" alt="No Image" style="height: 100px" class=" img-thumbnail" />
+            }
+            else
+            {
+                <img src="@Url.Content("~/ProfileImages/default.png")" alt="No image" style="height:100px" class=" img-thumbnail" />
+            }
+
+            <br /> <br />
+            @using (Html.BeginForm("UpdatePicture", "User", FormMethod.Post,
+                new { enctype = "multipart/form-data" }))
+            {
+                <input type="file" name="Picture" class="col-sm-2 form-control" />
+
+                <input type="submit" value="Salvati poza" class="btn btn-info btn-sm" style="margin-left:10px; margin-top: 2px" />
+            }
+        </dd>
+    </dl>
+
+
+
+</div>
+
